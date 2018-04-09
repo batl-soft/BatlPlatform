@@ -15,7 +15,7 @@ networks:
                 - traefik.docker.network=proxy
                 - traefik.enable=true
             ports:
-                - 8080:3353
+                - 8080:8080
             networks:
                 - internal
                 - proxy
