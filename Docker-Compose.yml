@@ -1,0 +1,22 @@
+version: '3'
+
+networks:
+    proxy:
+    external: true
+    internal:
+    external: false
+
+    services:
+        batlplatform:
+            image: batlsoft/batlplatform:latest
+            labels:
+                - traefik.backend=danskebank
+                - traefik.frontend.rule=Host:danskebank.bizbattle.biz
+                - traefik.docker.network=proxy
+                - traefik.enable=true
+            ports:
+                - 8080:3353
+            networks:
+                - internal
+                - proxy
+            restart: always
