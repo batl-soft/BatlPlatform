@@ -11,7 +11,7 @@ networks:
             image: batlsoft/batlplatform:latest
             labels:
                 - traefik.backend=danskebank
-                - traefik.frontend.rule=Host:danskebank.bizbattle.biz
+                - traefik.frontend.rule=Host:danskebank.batl.biz
                 - traefik.docker.network=proxy
                 - traefik.enable=true
             ports:
