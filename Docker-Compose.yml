@@ -8,7 +8,7 @@ networks:
 
     services:
         batlplatform:
-            image: batlsoft/batlplatform:latest
+            image: batlsoft/batl-platform:latest
             labels:
                 - traefik.backend=danskebank
                 - traefik.frontend.rule=Host:danskebank.batl.biz
