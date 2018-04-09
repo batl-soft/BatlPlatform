@@ -1,7 +1,7 @@
 FROM nginx:latest
 
 ## Add the default configuration for Angular app
-COPY BatlPlatform/default.conf /etc/nginx/conf.d/
+COPY default.conf /etc/nginx/conf.d/
 
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
