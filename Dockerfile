@@ -1,5 +1,5 @@
 # Create image based on the official Node 6 image from dockerhub
-FROM nginx:alpine
+FROM nginx:stable-alpine
 
 COPY nginx/default.conf /etc/nginx/conf.d/
 COPY dist/ /app
