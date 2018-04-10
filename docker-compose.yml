@@ -14,8 +14,6 @@ services:
             - traefik.frontend.rule=Host:danskebank.batl.biz
             - traefik.docker.network=proxy
             - traefik.enable=true
-        ports:
-            - 8080:80
         networks:
             - internal
             - proxy
