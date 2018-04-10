@@ -1,23 +1,14 @@
-# Create image based on the official Node 6 image from dockerhub
-FROM node:6
+### STAGE 1: Setup ###
 
-# Create a directory where our app will be placed
-RUN mkdir -p /usr/src/app
+FROM nginx:1.13.11-alpine
 
-# Change directory so that our commands run inside this new directory
-WORKDIR /usr/src/app
+## Copy our default nginx config
+COPY default.conf /etc/nginx/conf.d/
 
-# Copy dependency definitions
-COPY package.json /usr/src/app
+## Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
 
-# Install dependecies
-RUN npm install
+## From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
+COPY dist /usr/share/nginx/html
 
-# Get all the code needed to run the app
-COPY . /usr/src/app
-
-# Expose the port the app runs in
-EXPOSE 4200
-
-# Serve the app
-CMD ["npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
